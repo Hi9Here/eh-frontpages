@@ -1,0 +1,39 @@
+{
+  "name": "essentialhotels.co.uk",
+  "version": "0.0.3",
+  "homepage": "https://github.com/HackITtoday/essential-fp-stable",
+  "description": "eh site",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-elements": "PolymerElements/iron-elements#1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#1.0.1",
+    "platinum-elements": "PolymerElements/platinum-elements#1.0.0",
+    "page": "visionmedia/page.js#~1.6.3",
+    "site-list": "marcus7777/site-list",
+    "geo-hash-data": "marcus7777/geo-hash-data",
+    "map-eh": "marcus7777/map-eh",
+    "laterooms-ratepicker": "HackITtoday/laterooms-ratepicker",
+    "rate-lister": "marcus7777/rate-lister",
+    "ean-rates": "marcus7777/ean-rates",
+    "laterooms-rate": "marcus7777/laterooms-rate",
+    "frontpage-box": "HackITtoday/frontpage-box",
+    "mediator-data": "marcus7777/mediator-data"
+  },
+  "devDependencies": {
+    "web-component-tester": "*",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
+  },
+  "resolutions": {
+    "geo-hash-data": "master",
+    "polymer": "^1.1.0",
+    "moment": "~2.10.6"
+  }
+}

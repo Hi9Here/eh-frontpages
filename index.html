@@ -13,7 +13,7 @@
 
     neon-animated-pages {
 /* 		height: 75%; */
-       background: url("images/photos/cornwall_cove.jpg")  no-repeat center center fixed; 
+       background: no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -137,13 +137,14 @@
 	
 	
 	<template is="dom-bind" id="app">
-	<template is="dom-if" if="{{home_page}}">
-		<neon-animated-pages id="pages" selected="0">
+          <template is="dom-if" id="page" if="{{home_page}}">
+	    <neon-animated-pages id="pages" selected="0">
 			<circles-page on-circle-click="_onCircleClick" set_filters="{{filtered}}" top_level="{{top_filter}}">
 			</circles-page>
 			<squares-page type="{{type}}">
 			</squares-page></neon-animated-pages>
           <frontpage-box  style="margin-left: 80px;"></frontpage-box>
+          <mediator-data data="{{data}}" location="https://eh-frontpage.firebaseio.com/frontpage" folder="header"></mediator-data>
 	</template>
 	<template is="dom-if" if="{{search_page}}">
 		<squares-page type="{{type}}">
@@ -157,7 +158,7 @@
       scope._onSquaresClick = function(event) {
 //        this.$.pages.selected = 0;
       };
-      scope.home_page = true;
+      scope.home_page = true
       scope.search_page = false;
       scope.properties = {
         search:{
@@ -168,7 +169,7 @@
           type: Object,
           observer: "setUrl"
         }
-      };
+      }
       scope.setUrl = function () {
         for ( var filter in this.filtered){
           if (filter === "type") {
@@ -177,4 +178,19 @@
           }
         }
       }
-    </script></body></html>
+      loadpic = function(){
+        scope2=document.querySelector('neon-animated-pages')
+        if (scope.hasOwnProperty("data")) { 
+          if (scope.data.hasOwnProperty("pic")) {
+            scope2.style.backgroundImage='url('+scope.data.pic+')'
+          } else {
+            setTimeout(loadpic, 1000)
+          }
+        } else {
+          setTimeout(loadpic, 1000)
+        }
+      }
+      setTimeout(loadpic, 1000)
+    </script>
+  </body>
+</html>
